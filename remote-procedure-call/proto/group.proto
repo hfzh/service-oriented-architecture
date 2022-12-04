@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package groupPackage;
+
+service Group {
+    rpc GetGroupMember (GroupMemberRequest) returns (GroupMemberResponse) {}
+}
+
+message GroupMemberRequest {}
+
+message GroupMemberResponse {
+    repeated Member data = 1;
+}
+
+message Member {
+    string nama = 1;
+    string nrp = 2;
+}
