@@ -13,7 +13,7 @@ const data = [
     nrp: "5027201045",
   },
   {
-    nama: "Mutiara Rifliansyah Nuraisyah Dinda",
+    nama: "Mutiara Nuraisyah Dinda Rifliansah",
     nrp: "5027201054",
   },
 ];
