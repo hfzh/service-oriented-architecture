@@ -1,24 +1,15 @@
-import { Server, Socket } from "socket.io";
+import { Server } from "socket.io";
 
-const data = [
-  {
-    nama: "Hafizh Abid Wibowo",
-    nrp: "5027201011",
-  },
-  {
-    nama: "Muhammad Naufal Pasya",
-    nrp: "5027201045",
-  },
-  {
-    nama: "Mutiara Nuraisyah Dinda Rifliansah",
-    nrp: "5027201054",
-  },
-];
+const PORT = 3000;
 
-const io = new Server(3000);
+const io = new Server(PORT);
+
+let [, , name] = process.argv;
+name = name ?? "Client";
 
 io.on("connection", (socket) => {
-  socket.emit("ack", { data: data });
+  console.log(`Server connected on port ${PORT}`);
+  socket.emit("ack", { msg: `Hello, ${name}!` });
   socket.on("client-ack", (args) => {
     console.log(args);
   });
