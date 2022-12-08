@@ -1,8 +1,13 @@
 import axios from "axios";
 
-const getGroupMember = async () => {
-  const res = await axios.get("http://localhost:3000/group-member");
-  console.log(res.data);
-};
+const PORT = 3000;
 
-getGroupMember();
+let [, , name] = process.argv;
+name = name ?? "World";
+
+(async () => {
+  const res = await axios.post(`http://localhost:${PORT}/greet`, {
+    name: name,
+  });
+  console.log(res.data);
+})();
