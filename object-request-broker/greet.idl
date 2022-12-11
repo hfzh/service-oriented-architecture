@@ -1,0 +1,5 @@
+module Greet {
+	interface Greeter {
+		string getGreeter(in string msg);
+	};
+};
