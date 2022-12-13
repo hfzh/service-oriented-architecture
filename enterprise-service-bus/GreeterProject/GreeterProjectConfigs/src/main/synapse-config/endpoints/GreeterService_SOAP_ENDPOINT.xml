@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="GreeterService_SOAP_ENDPOINT" xmlns="http://ws.apache.org/ns/synapse">
+    <wsdl port="GreeterServiceSoapPort" service="GreeterService" uri="http://localhost:3000/wsdl?wsdl">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+        </markForSuspension>
+    </wsdl>
+</endpoint>

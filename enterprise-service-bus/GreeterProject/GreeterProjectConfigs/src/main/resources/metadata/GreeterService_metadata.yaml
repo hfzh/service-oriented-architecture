@@ -1,0 +1,11 @@
+---
+key: "GreeterService-1.0.0"
+name : "GreeterService"
+displayName : "GreeterService"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/default"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"
