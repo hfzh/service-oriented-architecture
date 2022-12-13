@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api" name="GreeterService" version="1.0.0" version-type="context" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/greeter">
+        <inSequence>
+            <!--This is generated API skeleton.-->
+            <!--Business Logic Goes Here-->
+            <log/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <tem:GreeterRequest>
+                                <tem:name>$1</tem:name>
+                            </tem:GreeterRequest>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="json" expression="$.name"/>
+                </args>
+            </payloadFactory>
+            <send>
+                <endpoint key="GreeterService_SOAP_ENDPOINT"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <jsonObject>
+                        <name>$1</name>
+                    </jsonObject>
+                </format>
+                <args>
+                    <arg evaluator="json" expression="GreeterResponse"/>
+                </args>
+            </payloadFactory>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

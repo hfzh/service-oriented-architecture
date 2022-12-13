@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: GreeterService
+  description: API Definition of GreeterService
+  version: 1.0.0
+servers:
+- url: /api
+paths:
+  /greeter:
+    post:
+      operationId: Greeter
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: object
+              properties:
+                GreeterRequest:
+                  $ref: '#/components/schemas/rootElement_GreeterRequest'
+        required: true
+      responses:
+        default:
+          description: Default Description
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  GreeterResponse:
+                    $ref: '#/components/schemas/rootElement_GreeterResponse'
+      x-wso2-soap:
+        x-soap-style: document
+        soap-action: Greeter
+        x-soap-message-type: document
+        soap-operation: Greeter
+        namespace: http://tempuri.org/
+        x-soap-version: '1.2'
+components:
+  schemas:
+    rootElement_GreeterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      xml: {
+        }
+      x-namespace-qualified: false
+    rootElement_GreeterResponse:
+      type: object
+      properties:
+        msg:
+          type: string
+      xml: {
+        }
+      x-namespace-qualified: false
